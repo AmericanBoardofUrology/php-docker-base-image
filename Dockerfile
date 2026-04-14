@@ -1,4 +1,4 @@
-FROM php:8.3-apache
+FROM php:8.4-apache
 
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
@@ -51,8 +51,8 @@ RUN docker-php-ext-install \
 RUN pear config-set php_ini `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"` system
 
 RUN pecl install \
-    sqlsrv-5.10.1 \
-    pdo_sqlsrv-5.10.1 \
+    sqlsrv \
+    pdo_sqlsrv \
     xdebug
 
 COPY php.ini /usr/local/etc/php/
