@@ -18,3 +18,11 @@ Database drivers:
 Tools:
 - composer
 - postfix
+
+## Build and push both amd64 + arm64 under the same tag
+
+docker buildx build \
+--platform linux/amd64,linux/arm64 \
+-t americanboardofurology/php:8.4 \
+--no-cache \
+--push .
