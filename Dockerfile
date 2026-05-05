@@ -1,4 +1,4 @@
-FROM php:8.4-apache
+FROM php:8.5-apache
 
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
@@ -44,8 +44,6 @@ RUN . ~/.bashrc
 RUN docker-php-ext-install \
     gd \
     mysqli \
-    opcache \
-    pdo \
     pdo_mysql \
     zip
 RUN pear config-set php_ini `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"` system
